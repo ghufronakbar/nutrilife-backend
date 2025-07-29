@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
       browser: req?.useragent?.browser,
       version: req?.useragent?.version,
       os: req?.useragent?.os,
-      platform: req.useragent.platform,
+      platform: req?.useragent?.platform,
     };
     return res.json({ message: "Welcome to " + APP_NAME, userAgent });
   } catch (error) {

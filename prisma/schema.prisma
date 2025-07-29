@@ -93,8 +93,8 @@ model UserPreference {
 
   bmr           Float
   tdee          Float
+  
   dailyCalories Float
-
   proteinGoal Float
   carbsGoal   Float
   fatGoal     Float

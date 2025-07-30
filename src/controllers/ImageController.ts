@@ -1,10 +1,5 @@
 import { Request, Response } from "express";
 import { BaseController } from "./BaseController";
-import {
-  CLOUDINARY_API_KEY,
-  CLOUDINARY_API_SECRET,
-  CLOUDINARY_CLOUD_NAME,
-} from "../constant/cloudinary";
 import { v2 as cloudinary } from "cloudinary";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
 

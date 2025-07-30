@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { APP_NAME, BASE_URL, PORT } from "./constant";
 import router from "./routes/index";
 import morgan from "morgan";
+import db from "./config/db";
 
 dotenv.config();
 
@@ -17,15 +18,16 @@ app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
 
 // Routes
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   try {
-    const userAgent = {
-      browser: req?.useragent?.browser,
-      version: req?.useragent?.version,
-      os: req?.useragent?.os,
-      platform: req?.useragent?.platform,
-    };
-    return res.json({ message: "Welcome to " + APP_NAME, userAgent });
+    const appData = await db.appActivityLevel.findMany();
+    return res.json({
+      message: "Welcome to " + APP_NAME,
+      db: {
+        status: "connected",
+        appDataLen: appData.length,
+      },
+    });
   } catch (error) {
     console.error(error);
     throw error;

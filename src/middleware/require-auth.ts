@@ -7,9 +7,6 @@ export const requireAuth = (
   res: Response,
   next: NextFunction
 ) => {
-  if (req.isAuthenticated && req.isAuthenticated()) {
-    return next();
-  }
   const authHeader = req.headers?.authorization || "Bearer ";
   if (authHeader?.startsWith("Bearer ")) {
     const token = authHeader?.split(" ")?.[1];

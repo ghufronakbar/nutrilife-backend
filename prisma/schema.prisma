@@ -84,6 +84,8 @@ model User {
 
   // Preferences
   userPreferences UserPreference[]
+
+  createdAt DateTime @default(now())
 }
 
 model UserPreference {
@@ -91,13 +93,13 @@ model UserPreference {
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  bmr           Float
-  tdee          Float
+  bmr  Float
+  tdee Float
 
   dailyCalories Float
-  proteinGoal Float
-  carbsGoal   Float
-  fatGoal     Float
+  proteinGoal   Float
+  carbsGoal     Float
+  fatGoal       Float
 
   weight Float // kg
   height Float // cm

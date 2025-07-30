@@ -41,6 +41,7 @@ export class ContentController extends BaseController {
       const mappedFoods: MappedFoods[] = appFoods.map((food) => ({
         id: food.id,
         name: food.name,
+        description: null,
         calories: food.calories,
         protein: food.protein,
         carbs: food.carbs,
@@ -51,6 +52,7 @@ export class ContentController extends BaseController {
       const mappedMenus: MappedFoods[] = appMenus.map((menu) => ({
         id: menu.id,
         name: menu.name,
+        description: menu.description,
         calories: menu.appFoods.reduce(
           (total, food) => total + food.calories,
           0
@@ -239,6 +241,7 @@ export class ContentController extends BaseController {
 interface MappedFoods {
   id: string;
   name: string;
+  description: string | null;
   calories: number;
   protein: number;
   carbs: number;

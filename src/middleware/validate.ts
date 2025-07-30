@@ -14,7 +14,7 @@ export const validate =
       const controller = new BaseController();
       return res.status(400).json({
         metaData: controller.metaData(400),
-        responseMessage: "Please fill in the form correctly",
+        responseMessage: "Harap lengkapi form dengan benar",
         errors: err?.errors || err,
       });
     }

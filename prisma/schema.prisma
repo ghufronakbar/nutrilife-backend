@@ -53,7 +53,7 @@ model AppActivityLevel {
   id          String @id @default(uuid())
   name        String // (e.g. Sedentary, Light, Moderate, Active, Very Active)
   description String @db.Text() // (e.g. little to no exercise)
-  weight      Float // (e.g. 1.2 = Sedentary, 1.375 = Light, 1.55 = Moderate, 1.725 = Active, 1.9 = Very Active)
+  factor      Float // (e.g. 1.2 = Sedentary, 1.375 = Light, 1.55 = Moderate, 1.725 = Active, 1.9 = Very Active)
 
   userPreferences UserPreference[]
 }
@@ -63,7 +63,7 @@ model AppPrimaryGoal {
   id   String @id @default(uuid())
   name String // (e.g. Lose Weight, Maintain Weight, Gain Weight, Build Muscle)
 
-  weight Float // (e.g. 0.8 = Lose Weight, 1.0 = Maintain Weight, 1.15 = Gain Weight, 1.2 = Build Muscle)
+  factor Float // (e.g. 0.8 = Lose Weight, 1.0 = Maintain Weight, 1.15 = Gain Weight, 1.2 = Build Muscle)
 
   appPlanningMenus AppPlanningMenu[]
   userPreferences  UserPreference[]
@@ -93,7 +93,7 @@ model UserPreference {
 
   bmr           Float
   tdee          Float
-  
+
   dailyCalories Float
   proteinGoal Float
   carbsGoal   Float

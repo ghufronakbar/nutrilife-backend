@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "AppActivityLevel" ADD COLUMN     "factor" DOUBLE PRECISION NOT NULL DEFAULT 0;
+
+-- AlterTable
+ALTER TABLE "AppPrimaryGoal" ADD COLUMN     "factor" DOUBLE PRECISION NOT NULL DEFAULT 0;

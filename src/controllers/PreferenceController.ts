@@ -54,8 +54,8 @@ export class PreferenceController extends BaseController {
 
       const age = calculateAge(checkUser.dateOfBirth);
       const bmr = calculateBMR(checkUser.gender, weight, height, age);
-      const tdee = calculateTDEE(bmr, checkActivity.weight);
-      const dailyCalories = calculateDailyCalories(tdee, checkGoal.weight);
+      const tdee = calculateTDEE(bmr, checkActivity.factor);
+      const dailyCalories = calculateDailyCalories(tdee, checkGoal.factor);
 
       const { carbsGoal, proteinGoal, fatGoal } =
         calculateMacros(dailyCalories);

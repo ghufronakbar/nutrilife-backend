@@ -6,46 +6,46 @@ const seedDataAppActivityLevel: Prisma.AppActivityLevelCreateInput[] = [
     name: "Tidak Aktif",
     description:
       "Hampir tidak pernah berolahraga atau melakukan aktivitas fisik",
-    weight: 1.2,
+    factor: 1.2,
   },
   {
     name: "Ringan",
     description: "Berolahraga ringan 1–3 kali dalam seminggu",
-    weight: 1.375,
+    factor: 1.375,
   },
   {
     name: "Sedang",
     description: "Berolahraga sedang 3–5 kali dalam seminggu",
-    weight: 1.55,
+    factor: 1.55,
   },
   {
     name: "Aktif",
     description: "Berolahraga berat 6–7 kali seminggu",
-    weight: 1.725,
+    factor: 1.725,
   },
   {
     name: "Sangat Aktif",
     description: "Latihan intensif setiap hari dan pekerjaan fisik berat",
-    weight: 1.9,
+    factor: 1.9,
   },
 ];
 
 const seedDataAppPrimaryGoal: Prisma.AppPrimaryGoalCreateInput[] = [
   {
     name: "Menurunkan Berat Badan",
-    weight: 0.8,
+    factor: 0.8,
   },
   {
     name: "Menjaga Berat Badan",
-    weight: 1.0,
+    factor: 1.0,
   },
   {
     name: "Menaikkan Berat Badan",
-    weight: 1.15,
+    factor: 1.15,
   },
   {
     name: "Meningkatkan Massa Otot",
-    weight: 1.2,
+    factor: 1.2,
   },
 ];
 
@@ -135,7 +135,6 @@ async function seedAppFood() {
   }
 }
 
-
 async function seedAppMenu() {
   console.log("🌱 Seeding AppMenu...");
   const allFoods = await db.appFood.findMany();
@@ -180,7 +179,6 @@ async function seedAppMenu() {
     console.log(`✔️  Ditambahkan: ${menuCreated.name}`);
   }
 }
-
 
 async function seedAppPlanningMenu() {
   console.log("🌱 Seeding AppPlanningMenu...");

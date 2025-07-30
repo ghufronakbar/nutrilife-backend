@@ -103,10 +103,10 @@ export class UserController extends BaseController {
 
       const age = calculateAge(dateOfBirth);
       const bmr = calculateBMR(gender as $Enums.Gender, weight, height, age);
-      const tdee = calculateTDEE(bmr, checkActivityLevel.weight);
+      const tdee = calculateTDEE(bmr, checkActivityLevel.factor);
       const dailyCalories = calculateDailyCalories(
         tdee,
-        checkPrimaryGoal.weight
+        checkPrimaryGoal.factor
       );
       const { carbsGoal, proteinGoal, fatGoal } =
         calculateMacros(dailyCalories);

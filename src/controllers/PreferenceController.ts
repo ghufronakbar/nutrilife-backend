@@ -69,12 +69,12 @@ export class PreferenceController extends BaseController {
               userId: userId,
             },
             {
-              endedAt: now.toDate(),
+              endedAt: null,
             },
           ],
         },
         data: {
-          endedAt: new Date(),
+          endedAt: now.toDate(),
         },
       });
 
@@ -91,6 +91,7 @@ export class PreferenceController extends BaseController {
           proteinGoal,
           tdee,
           weight,
+          startedAt: now.toDate(),
         },
       });
 
@@ -137,6 +138,9 @@ export class PreferenceController extends BaseController {
               },
             },
             take: 1,
+            orderBy: {
+              startedAt: "desc",
+            },
           },
         },
       });

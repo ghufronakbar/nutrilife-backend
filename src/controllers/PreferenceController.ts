@@ -60,6 +60,8 @@ export class PreferenceController extends BaseController {
       const { carbsGoal, proteinGoal, fatGoal } =
         calculateMacros(dailyCalories);
 
+      const now = moment().tz("Asia/Jakarta");
+
       await db.userPreference.updateMany({
         where: {
           AND: [
@@ -67,7 +69,7 @@ export class PreferenceController extends BaseController {
               userId: userId,
             },
             {
-              endedAt: null,
+              endedAt: now.toDate(),
             },
           ],
         },
